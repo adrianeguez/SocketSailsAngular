@@ -1,22 +1,57 @@
 <html>
-    <head>
-        
-    </head>
-    <body ng-app="chat" ng-controller="main">
-      <input type="text" ng-model="variable">
-      <button ng-click="llamar()">culo</button>
-      
-        <div ng-repeat="cha in chat">
-          <ul>
-            <li>{{cha.nombre}}</li>
-          </ul>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<body ng-app="chat" ng-controller="main" class="container">
+  <h1>Web Sockets</h1>
+  <div class="row form-group">
+    <h2>Ingrese un nuevo chat</h2>
+    <div class="col-xs-6">
+      <label for="">Chat con Web Socket</label>
+      <br>
+      <input class="form-control" type="text" ng-model="nuevoChatWebSocket">
+      <br>
+      <button class="btn btn-block" ng-click="llamarConSocketPost()">Llamar con Post WebSockets </button>
+    </div>
+    <div class="col-xs-6">
+      <label for="">Chat con Http</label>
+      <br>
+      <input class="form-control" type="text" ng-model="nuevoChatHttp">
+      <br>
+      <button class="btn btn-block" ng-click="llamarConHttpPost()">Llamar con Post Http </button>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-6">
+      <h2>Chat traido con Ws</h2>
+      <div ng-repeat="chat in chatsWs">
+        <div>
+          <p class="col-xs-4">{{chat.nombre}}</p>
         </div>
-        <script type="text/javascript" src="http://localhost:1337/js/dependencies/sails.io.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>    
-        
-        
-        
-        <script type="text/javascript" src="app.js"></script>
-        
-    </body>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <h2>Chat traido con Http</h2>
+      <div ng-repeat="chat in chatsHttp">
+        <div>
+          <p class="col-xs-4">{{chat.nombre}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="text/javascript" src="http://localhost:1337/js/dependencies/sails.io.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+
+
+  <script type="text/javascript" src="app.js"></script>
+
+</body>
+
 </html>
